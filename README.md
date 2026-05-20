@@ -82,7 +82,7 @@ A full discussion of findings, limitations, and natural next iterations (negativ
 ### Setup
 
 ```bash
-git clone https://github.com/ayokunmi-lawal/toronto-overdose-spatial.git
+git clone https://github.com/ayokumo/toronto-overdose-spatial.git
 cd toronto-overdose-spatial
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
@@ -124,4 +124,4 @@ The shelter-concentration finding should not be interpreted as a critique of she
 
 **Ayokunmi Lawal** — Data Science (Hons.), Minor in Finance, York University
 
-[GitHub](https://github.com/ayokunmi-lawal) · Toronto, Ontario
+[GitHub](https://github.com/ayokumo) · Toronto, Ontario
