@@ -6,6 +6,18 @@ The analysis identifies which neighborhood-level features predict overdose incid
 
 ---
 
+## Results at a glance
+
+| Question | Finding |
+|---|---|
+| Is incidence concentrated? | Yes — a handful of addresses drive the majority of recorded incidents; several downtown neighborhoods have a concentration ratio of 1.0 (all incidents from a single address). |
+| When did it intensify? | Most top-five addresses peak in 2020–2021, consistent with pandemic-era supply changes and service disruption. |
+| Is the clustering "spatial"? | Largely not. Moran's I on OLS residuals = 0.057 (p = 0.086) — below significance. The clustering is a socioeconomic process that happens to be spatially organized. |
+| What is the key predictor? | Low-income measure after-tax (LIM-AT) prevalence. Under HC3-robust inference, each +1 pp in LIM-AT ≈ +8% incidents (p = 0.023), controlling for population, area, downtown distance, and unemployment. |
+| Which model was chosen? | Spatial lag (`ML_Lag`) — it eliminates residual autocorrelation (residual Moran's I = −0.024, p = 0.381); the spatial error model does not. |
+
+---
+
 ## Key findings
 
 **1. Concentration at the address level.** A handful of shelter and supportive housing addresses account for the majority of recorded incidents. The single highest-burden address contributes the largest share of overdoses in its neighborhood, and several downtown neighborhoods have concentration ratios of 1.0 — every recorded incident comes from a single address.
@@ -58,16 +70,19 @@ A full discussion of findings, limitations, and natural next iterations (negativ
 ```
 .
 ├── README.md
+├── LICENSE
 ├── requirements.txt
+├── overdose_map.html                          # interactive folium map
 ├── notebooks/
-│   └── final_overdose_report_updated.ipynb    # main analysis notebook
+│   └── overdose_analysis.ipynb                # main analysis notebook
 ├── data/
+│   ├── README.md                              # data sources and download notes
 │   ├── soois.csv                              # raw incident data (City of Toronto)
 │   ├── geocoded_addresses.csv                 # cached geocoder output
-│   ├── toronto_neighbourhoods.geojson         # 158-neighborhood boundaries
-│   └── neighbourhood-profiles-2021-158-model.xlsx  # 2021 Census profiles
-├── figures/                                   # exported headline figures
-└── overdose_map.html                          # interactive folium map
+│   └── toronto_neighbourhoods.geojson         # 158-neighborhood boundaries
+│       # neighbourhood-profiles-2021-158-model.(xlsx|csv) is NOT committed —
+│       # download it from the City of Toronto portal into data/ (see below).
+└── figures/                                   # exported headline figures
 ```
 
 ---
@@ -89,11 +104,30 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+### One manual data step
+
+The 2021 Census profiles file is not redistributed in this repo. Download the
+**Neighbourhood Profiles (2021, 158-model)** file from the
+[City of Toronto Open Data portal](https://open.toronto.ca/dataset/neighbourhood-profiles/)
+(the dataset is now marked *Retired*, so download it while it remains available)
+and save it into `data/` as either:
+
+- `data/neighbourhood-profiles-2021-158-model.xlsx`, or
+- `data/neighbourhood-profiles-2021-158-model.csv`
+
+The notebook's loader accepts either format.
+
 ### Run
 
-Open `notebooks/final_overdose_report_updated.ipynb` in Jupyter or VS Code and run cells top-to-bottom. The geocoded address cache (`data/geocoded_addresses.csv`) is included so you don't need a Nominatim API key to reproduce the analysis from end to end.
+Open `notebooks/overdose_analysis.ipynb` in Jupyter or VS Code and run cells
+top-to-bottom. With the one data file above in place, the notebook runs end to
+end. The geocoded address cache (`data/geocoded_addresses.csv`) is included, so
+you do not need a Nominatim API key. The suppressed-count imputation is seeded
+(`np.random.seed(42)`), so results are deterministic across runs.
 
-Total runtime on a modern laptop is approximately 2–3 minutes, dominated by the spatial weights matrix construction and the maximum-likelihood spatial regression fits.
+Total runtime on a modern laptop is approximately 2–3 minutes, dominated by the
+spatial weights matrix construction and the maximum-likelihood spatial
+regression fits.
 
 ---
 
@@ -112,7 +146,7 @@ All inputs are publicly available and free to access:
 
 ## Limitations and ethical considerations
 
-This analysis works with publicly released, aggregated address-level counts. It does not use individual-level records and cannot identify individuals. Counts of fewer than 5 incidents at any address-year are suppressed by the City; this analysis imputes those values uniformly at random in [1, 5] for the descriptive sections, with the imputation documented in the notebook.
+This analysis works with publicly released, aggregated address-level counts. It does not use individual-level records and cannot identify individuals. Counts of fewer than 5 incidents at any address-year are suppressed by the City; this analysis imputes those values uniformly at random in the integer range **1–4** (a suppressed `< 5` count cannot be 5), using a fixed seed so results are reproducible. The imputation is documented in the notebook, and because the concentration finding is driven by high-count addresses, it is not sensitive to the imputed low counts.
 
 Neighborhood-level associations do not translate to individual-level risk (ecological fallacy). The 158-neighborhood polygons are an administrative construct, and results may differ at finer (dissemination area, hex grid) or coarser scales — the Modifiable Areal Unit Problem is acknowledged in Section 8.5.10 as a limitation, and an H3 hex-resolution robustness check is identified as a natural next iteration.
 
