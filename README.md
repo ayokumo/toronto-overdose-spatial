@@ -6,6 +6,10 @@ The analysis identifies which neighborhood-level features predict overdose incid
 
 ---
 
+**[▶ Explore the interactive map](https://ayokumo.github.io/toronto-overdose-spatial/overdose_map.html)** — click through overdose counts across Toronto shelter locations.
+
+---
+
 ## Results at a glance
 
 | Question | Finding |
@@ -47,7 +51,7 @@ The analysis proceeds in two parts:
 - Data cleaning of the City of Toronto Suspected Non-Fatal Opioid Overdoses in Shelters dataset (2018–2025), including treatment of suppressed counts (`< 5`) and address normalization
 - Geocoding of unique shelter and supportive housing addresses using `geopy`, with results cached locally for reproducibility
 - Year-over-year and address-level trend analysis
-- Interactive `folium` map (`overdose_map.html`) overlaying counts on Toronto's geography
+- Interactive [`folium` map](https://ayokumo.github.io/toronto-overdose-spatial/overdose_map.html) overlaying counts on Toronto's geography
 - Targeted analysis of the Billy Bishop airport corridor, identifying a single address responsible for a disproportionate share of nearby incidents
 
 ### Spatial regression modeling (Section 8.5)
