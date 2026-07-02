@@ -69,6 +69,14 @@ A full discussion of findings, limitations, and natural next iterations (negativ
 
 ---
 
+## Machine learning: predicting neighborhood incidence
+
+A companion notebook (`notebooks/ml_overdose_prediction.ipynb`) adds a predictive layer: given a neighborhood's socioeconomic and geographic features, can we predict its overdose count? The workflow uses a baseline, several models (linear, Poisson, Random Forest, Gradient Boosting), repeated k-fold cross-validation (the sample is only 158 neighborhoods), feature importance, and error analysis.
+
+**Result.** The models cut cross-validated error by roughly a third versus a no-features baseline (MAE ~52 -> ~33 incidents), with low-income prevalence, population, and downtown proximity as the strongest predictors. But the error analysis is the point: the model's largest misses are precisely the neighborhoods where a *single shelter address* drives the count (mean error ~72 incidents where one address dominates, versus ~20 elsewhere). No neighborhood-level feature can capture this, because the true signal operates below the neighborhood scale — the same conclusion the spatial regression reached, shown here from a predictive angle. The practical implication: resource-allocation models for this problem should be built at the facility level, not the neighborhood level.
+
+---
+
 ## Repository structure
 
 ```
@@ -78,11 +86,13 @@ A full discussion of findings, limitations, and natural next iterations (negativ
 ├── requirements.txt
 ├── overdose_map.html                          # interactive folium map
 ├── notebooks/
-│   └── overdose_analysis.ipynb                # main analysis notebook
+│   ├── overdose_analysis.ipynb                # main analysis notebook
+│   └── ml_overdose_prediction.ipynb          # ML: predicting neighborhood counts
 ├── data/
 │   ├── README.md                              # data sources and download notes
 │   ├── soois.csv                              # raw incident data (City of Toronto)
 │   ├── geocoded_addresses.csv                 # cached geocoder output
+│   ├── neighbourhood_features.csv             # per-neighborhood modeling table (ML input)
 │   └── toronto_neighbourhoods.geojson         # 158-neighborhood boundaries
 │       # neighbourhood-profiles-2021-158-model.(xlsx|csv) is NOT committed —
 │       # download it from the City of Toronto portal into data/ (see below).
