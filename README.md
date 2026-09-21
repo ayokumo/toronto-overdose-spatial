@@ -1,3 +1,4 @@
+[overdose-README.md](https://github.com/user-attachments/files/32483222/overdose-README.md)
 # Toronto Suspected Non-Fatal Opioid Overdoses in Shelters: Geospatial Analysis and Spatial Regression
 
 An address-level geospatial analysis of suspected non-fatal opioid overdoses in Toronto shelters and supportive housing sites, 2018–2025, with a spatial regression layer on the 158 official Toronto neighborhoods.
@@ -170,6 +171,6 @@ The shelter-concentration finding should not be interpreted as a critique of she
 
 ## Author
 
-**Ayokunmi Lawal** — Data Science (Hons.), Minor in Finance, York University
+**Ayokunmi Lawal**, Applied Mathematics, York University
 
 [GitHub](https://github.com/ayokumo) · Toronto, Ontario
