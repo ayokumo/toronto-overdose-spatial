@@ -171,6 +171,6 @@ The shelter-concentration finding should not be interpreted as a critique of she
 
 ## Author
 
-**Ayokunmi Lawal**, Applied Mathematics, York University
+**Ayokunmi Lawal**, Data Science, York University
 
 [GitHub](https://github.com/ayokumo) · Toronto, Ontario
