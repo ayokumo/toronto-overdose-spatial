@@ -20,6 +20,7 @@ The analysis identifies which neighborhood-level features predict overdose incid
 | Is the clustering "spatial"? | Largely not. Moran's I on OLS residuals = 0.057 (p = 0.086) — below significance. The clustering is a socioeconomic process that happens to be spatially organized. |
 | What is the key predictor? | Low-income measure after-tax (LIM-AT) prevalence. Under HC3-robust inference, each +1 pp in LIM-AT ≈ +8% incidents (p = 0.023), controlling for population, area, downtown distance, and unemployment. |
 | Which model was chosen? | Spatial lag (`ML_Lag`) — it eliminates residual autocorrelation (residual Moran's I = −0.024, p = 0.381); the spatial error model does not. |
+| Where are the clusters? | It depends on the method. DBSCAN finds 6 clusters at settings fixed in advance, one holding 67% of geocoded incidents. Local Moran's I finds 1 contiguous hotspot of 9 downtown neighbourhoods. See [Cluster analysis](#cluster-analysis). |
 
 ---
 
@@ -40,6 +41,43 @@ The analysis identifies which neighborhood-level features predict overdose incid
 **5. The model's residuals confirm the address-level concentration finding.** The largest under-predictions concentrate in Moss Park, Harbourfront-CityPlace, and South Parkdale — exactly the neighborhoods where a single shelter address drives the count. No plausible set of neighborhood-level features can capture this, because the driver operates *below* the neighborhood scale.
 
 ![Observed incidents vs spatial error model residuals](figures/04_residual_choropleth.png)
+
+---
+
+## Cluster analysis
+
+Added 2026-10-15. `python scripts/cluster_analysis.py` reproduces the notebook's cleaning (same seed for the suppressed count imputation) and runs two methods. The DBSCAN settings were fixed before any results were seen: eps of 1000 m and at least 3 addresses. The sensitivity table below shows how much the count depends on those choices.
+
+![Cluster map](figures/06_cluster_map.png)
+
+| Method | Result |
+|---|---|
+| DBSCAN on 114 geocoded addresses (eps 1000 m, min samples 3) | **6 clusters.** One large downtown cluster holds 48 addresses and 3,560 incidents (67% of the 5,304 geocoded incidents). The other five are small, with 3 to 6 addresses and 10 to 50 incidents each. |
+| Local Moran's I on 158 neighbourhoods (999 permutations, p < 0.05) | **9 hotspot neighbourhoods in 1 contiguous group** in the downtown core: Moss Park, Harbourfront-CityPlace, Fort York-Liberty Village, Wellington Place, Downtown Yonge East, St Lawrence-East Bayfront-The Islands, West Queen West, Church-Wellesley and Yonge-Bay Corridor. |
+
+DBSCAN clusters, largest first:
+
+| Cluster | Addresses | Incidents | Largest address | Main neighbourhoods |
+|---|---|---|---|---|
+| 1 | 48 | 3,560 | 545 Lake Shore Blvd W | Moss Park, Harbourfront-CityPlace, South Parkdale, Fort York-Liberty Village, Wellington Place |
+| 2 | 4 | 50 | 962 Bloor St W | Dovercourt Village |
+| 3 | 3 | 39 | 973 Lansdowne Ave | Junction-Wallace Emerson |
+| 4 | 6 | 34 | 348 Davenport Rd | Annex |
+| 5 | 3 | 24 | 14 Vaughan Rd | Wychwood |
+| 6 | 3 | 10 | 870 Queen St E | South Riverdale |
+
+**No cluster count is stable.** Number of DBSCAN clusters across settings (the bold cell is the primary run):
+
+| eps (m) | min samples 2 | min samples 3 | min samples 5 |
+|---|---|---|---|
+| 500 | 8 | 5 | 3 |
+| 750 | 9 | 6 | 3 |
+| 1000 | 8 | **6** | 2 |
+| 1500 | 8 | 3 | 1 |
+
+The count runs from 1 to 9 across this grid. At the primary settings it falls to 2 if the 29 addresses with zero recorded incidents are dropped. The pattern that holds up is the large downtown concentration. The five small clusters are minor by volume, under 1% of incidents each, and should not be read as separate priority areas.
+
+Limits of this analysis: 107 of the 158 neighbourhoods have zero incidents, so many values tie at zero for the Local Moran's I run, and its p values are not corrected for multiple testing. DBSCAN treats every address equally and uses straight line distance. Full tables are in `results/`, and the full run output is in `results/cluster_summary.txt`.
 
 ---
 
@@ -86,6 +124,9 @@ A companion notebook (`notebooks/ml_overdose_prediction.ipynb`) adds a predictiv
 ├── LICENSE
 ├── requirements.txt
 ├── overdose_map.html                          # interactive folium map
+├── scripts/
+│   └── cluster_analysis.py                    # Local Moran's I and DBSCAN clusters
+├── results/                                   # cluster tables and run summary
 ├── notebooks/
 │   ├── overdose_analysis.ipynb                # main analysis notebook
 │   └── ml_overdose_prediction.ipynb          # ML: predicting neighborhood counts
@@ -144,6 +185,10 @@ Total runtime on a modern laptop is approximately 2–3 minutes, dominated by th
 spatial weights matrix construction and the maximum-likelihood spatial
 regression fits.
 
+### Cluster analysis
+
+With the same data files in place, run `python scripts/cluster_analysis.py` from the repo root. It takes under a minute and writes `results/` and `figures/06_cluster_map.png`.
+
 ---
 
 ## Data sources
@@ -166,6 +211,8 @@ This analysis works with publicly released, aggregated address-level counts. It 
 Neighborhood-level associations do not translate to individual-level risk (ecological fallacy). The 158-neighborhood polygons are an administrative construct, and results may differ at finer (dissemination area, hex grid) or coarser scales — the Modifiable Areal Unit Problem is acknowledged in Section 8.5.10 as a limitation, and an H3 hex-resolution robustness check is identified as a natural next iteration.
 
 The shelter-concentration finding should not be interpreted as a critique of shelter operators. Shelters serve populations at elevated risk, and a high overdose count at a shelter address is more plausibly read as evidence that the shelter is reaching the people who most need harm reduction services. Any policy reading of this analysis should center the people most affected.
+
+Geocoding covers 114 of 151 addresses, which hold 5,304 of 6,348 recorded incidents (84%). The other 37 addresses could not be placed on the map, so they are left out of the neighbourhood level totals and out of the cluster analysis.
 
 ---
 

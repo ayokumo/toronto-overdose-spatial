@@ -1,0 +1,159 @@
+neighborhood,total_incidents,log_incidents,lisa_q,lisa_p,lisa_class
+South Eglinton-Davisville,0,0.0,3,0.001,LL
+North Toronto,0,0.0,3,0.001,LL
+Yonge-Bay Corridor,17,2.8903717578961645,1,0.001,HH
+East Willowdale,6,1.9459101490553128,4,0.001,HL
+Scarborough Village,8,2.19722457733622,4,0.001,HL
+West Rouge,0,0.0,3,0.001,LL
+Islington,0,0.0,3,0.001,LL
+St Lawrence-East Bayfront-The Islands,99,4.605170185988092,1,0.001,HH
+Lawrence Park South,0,0.0,3,0.001,LL
+Lawrence Park North,0,0.0,3,0.001,LL
+Yonge-Eglinton,0,0.0,3,0.001,LL
+Forest Hill South,0,0.0,3,0.001,LL
+Mimico-Queensway,4,1.6094379124341005,4,0.001,HL
+Steeles,0,0.0,3,0.001,LL
+Mount Dennis,0,0.0,3,0.001,LL
+Hillcrest Village,0,0.0,3,0.001,LL
+Etobicoke West Mall,0,0.0,3,0.001,LL
+Princess-Rosethorn,0,0.0,3,0.001,LL
+Black Creek,18,2.9444389791664403,4,0.001,HL
+Edenbridge-Humber Valley,0,0.0,3,0.001,LL
+Kingsway South,0,0.0,3,0.001,LL
+Markland Wood,0,0.0,3,0.001,LL
+West Queen West,30,3.4339872044851463,1,0.002,HH
+Harbourfront-CityPlace,688,6.535241271013659,1,0.002,HH
+Bay-Cloverhill,0,0.0,2,0.002,LH
+Cabbagetown-South St.James Town,0,0.0,2,0.002,LH
+Fort York-Liberty Village,369,5.91350300563827,1,0.002,HH
+Moss Park,1155,7.052721049232323,1,0.004,HH
+Church-Wellesley,24,3.218875824868201,1,0.004,HH
+Wellington Place,171,5.147494476813453,1,0.007,HH
+Downtown Yonge East,158,5.068904202220232,1,0.013,HH
+Trinity-Bellwoods,0,0.0,2,0.046,LH
+Palmerston-Little Italy,0,0.0,2,0.061,ns
+Bedford Park-Nortown,0,0.0,3,0.067,ns
+O'Connor-Parkview,0,0.0,3,0.071,ns
+Little Portugal,1,0.6931471805599453,2,0.078,ns
+Bendale-Glen Andrew,8,2.19722457733622,1,0.079,ns
+Morningside Heights,0,0.0,3,0.081,ns
+Maple Leaf,0,0.0,2,0.085,ns
+Kensington-Chinatown,134,4.90527477843843,1,0.089,ns
+Yorkdale-Glen Park,56,4.04305126783455,4,0.094,ns
+Corso Italia-Davenport,0,0.0,2,0.098,ns
+Fenside-Parkwoods,0,0.0,2,0.105,ns
+Lambton Baby Point,0,0.0,3,0.106,ns
+Annex,37,3.6375861597263857,1,0.106,ns
+South Riverdale,10,2.3978952727983707,1,0.108,ns
+Regent Park,70,4.262679877041316,1,0.118,ns
+Oakridge,0,0.0,2,0.119,ns
+Dovercourt Village,46,3.8501476017100575,1,0.121,ns
+North St.James Town,27,3.332204510175204,1,0.122,ns
+Cliffcrest,0,0.0,2,0.123,ns
+Tam O'Shanter-Sullivan,0,0.0,2,0.126,ns
+Etobicoke City Centre,0,0.0,3,0.13,ns
+East End-Danforth,61,4.127134385045092,4,0.131,ns
+Parkwoods-O'Connor Hills,0,0.0,2,0.134,ns
+Banbury-Don Mills,46,3.8501476017100575,4,0.135,ns
+Malvern East,0,0.0,2,0.135,ns
+Wychwood,24,3.218875824868201,1,0.138,ns
+Humber Bay Shores,0,0.0,2,0.143,ns
+Old East York,0,0.0,3,0.145,ns
+Caledonia-Fairbank,9,2.302585092994046,4,0.153,ns
+The Beaches,0,0.0,2,0.156,ns
+Dorset Park,0,0.0,2,0.158,ns
+Bayview Woods-Steeles,0,0.0,3,0.159,ns
+Rockcliffe-Smythe,0,0.0,3,0.161,ns
+Roncesvalles,0,0.0,2,0.164,ns
+University,17,2.8903717578961645,1,0.165,ns
+Westminster-Branson,0,0.0,2,0.17,ns
+Mount Pleasant East,0,0.0,3,0.178,ns
+Birchcliffe-Cliffside,34,3.555348061489413,1,0.178,ns
+Guildwood,0,0.0,2,0.186,ns
+West Hill,71,4.276666119016055,4,0.191,ns
+Oakdale-Beverley Heights,176,5.176149732573829,4,0.193,ns
+Yonge-Doris,0,0.0,2,0.196,ns
+Brookhaven-Amesbury,0,0.0,3,0.203,ns
+Glenfield-Jane Heights,0,0.0,2,0.206,ns
+Greenwood-Coxwell,0,0.0,3,0.207,ns
+Blake-Jones,0,0.0,3,0.207,ns
+Bathurst Manor,0,0.0,3,0.212,ns
+Elms-Old Rexdale,0,0.0,2,0.219,ns
+Alderwood,0,0.0,3,0.219,ns
+Weston-Pelham Park,0,0.0,2,0.228,ns
+Danforth,0,0.0,3,0.231,ns
+Broadview North,8,2.19722457733622,4,0.231,ns
+Humber Heights-Westmount,0,0.0,3,0.231,ns
+Lansing-Westgate,0,0.0,3,0.232,ns
+Ionview,0,0.0,2,0.236,ns
+Newtonbrook East,0,0.0,2,0.236,ns
+Woburn North,81,4.406719247264253,1,0.242,ns
+Golfdale-Cedarbrae-Woburn,0,0.0,2,0.247,ns
+Eringate-Centennial-West Deane,0,0.0,3,0.248,ns
+Kingsview Village-The Westway,36,3.610917912644224,4,0.257,ns
+Thistletown-Beaumond Heights,26,3.295836866004329,4,0.259,ns
+Weston,0,0.0,3,0.26,ns
+South Parkdale,536,6.285998094508865,1,0.262,ns
+Rexdale-Kipling,0,0.0,2,0.265,ns
+Woodbine-Lumsden,0,0.0,3,0.272,ns
+North Riverdale,0,0.0,2,0.273,ns
+Agincourt South-Malvern West,299,5.703782474656201,4,0.276,ns
+Forest Hill North,0,0.0,3,0.286,ns
+Junction Area,63,4.158883083359672,4,0.287,ns
+Playter Estates-Danforth,0,0.0,3,0.291,ns
+Henry Farm,103,4.6443908991413725,4,0.3,ns
+Long Branch,0,0.0,3,0.305,ns
+New Toronto,0,0.0,3,0.305,ns
+Wexford/Maryvale,25,3.258096538021482,4,0.307,ns
+Junction-Wallace Emerson,39,3.688879454113936,1,0.307,ns
+Pleasant View,0,0.0,3,0.314,ns
+Morningside,4,1.6094379124341005,1,0.317,ns
+Victoria Village,0,0.0,2,0.318,ns
+High Park North,0,0.0,2,0.332,ns
+Flemingdon Park,0,0.0,3,0.335,ns
+Newtonbrook West,219,5.393627546352362,4,0.335,ns
+Pelmo Park-Humberlea,0,0.0,2,0.336,ns
+Humbermede,0,0.0,2,0.337,ns
+Englemount-Lawrence,0,0.0,3,0.346,ns
+L'Amoreaux West,0,0.0,3,0.352,ns
+Agincourt North,0,0.0,2,0.353,ns
+Downsview,17,2.8903717578961645,1,0.362,ns
+Centennial Scarborough,0,0.0,2,0.363,ns
+York University Heights,0,0.0,2,0.365,ns
+High Park-Swansea,2,1.0986122886681098,3,0.369,ns
+Keelesdale-Eglinton West,0,0.0,3,0.375,ns
+St.Andrew-Windfields,22,3.1354942159291497,4,0.379,ns
+Casa Loma,0,0.0,2,0.381,ns
+Avondale,0,0.0,3,0.383,ns
+Mount Olive-Silverstone-Jamestown,0,0.0,2,0.396,ns
+Clairlea-Birchmount,6,1.9459101490553128,1,0.409,ns
+Don Valley Village,0,0.0,3,0.419,ns
+Oakwood Village,8,2.19722457733622,4,0.421,ns
+Bridle Path-Sunnybrook-York Mills,0,0.0,3,0.424,ns
+West Humber-Clairville,41,3.737669618283368,4,0.427,ns
+Milliken,0,0.0,3,0.428,ns
+Briar Hill-Belgravia,0,0.0,2,0.435,ns
+Thorncliffe Park,0,0.0,3,0.437,ns
+Highland Creek,0,0.0,3,0.442,ns
+Bayview Village,0,0.0,3,0.444,ns
+Danforth East York,0,0.0,3,0.448,ns
+Woodbine Corridor,0,0.0,3,0.453,ns
+East L'Amoreaux,0,0.0,3,0.454,ns
+Malvern West,0,0.0,3,0.454,ns
+Humber Summit,0,0.0,2,0.455,ns
+Beechborough-Greenbrook,0,0.0,3,0.461,ns
+Willowridge-Martingrove-Richview,0,0.0,2,0.461,ns
+Runnymede-Bloor West Village,0,0.0,3,0.465,ns
+Rustic,0,0.0,3,0.467,ns
+Rosedale-Moore Park,75,4.330733340286331,4,0.47,ns
+Kennedy Park,100,4.61512051684126,4,0.471,ns
+Taylor-Massey,0,0.0,2,0.474,ns
+Stonegate-Queensway,0,0.0,3,0.476,ns
+Eglinton East,0,0.0,3,0.481,ns
+Willowdale West,20,3.044522437723423,4,0.482,ns
+Dufferin Grove,0,0.0,3,0.492,ns
+Leaside-Bennington,0,0.0,3,0.493,ns
+Yonge-St.Clair,0,0.0,3,0.494,ns
+Humewood-Cedarvale,0,0.0,3,0.495,ns
+Clanton Park,0,0.0,3,0.497,ns
+Bendale South,0,0.0,3,0.498,ns

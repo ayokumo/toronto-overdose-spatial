@@ -1,0 +1,13 @@
+eps_m,min_samples,clusters,addresses_in_clusters,noise_addresses,incident_share_in_clusters,primary
+500,2,8,53,61,0.358,False
+500,3,5,47,67,0.348,False
+500,5,3,32,82,0.295,False
+750,2,9,64,50,0.674,False
+750,3,6,58,56,0.504,False
+750,5,3,48,66,0.359,False
+1000,2,8,71,43,0.719,False
+1000,3,6,67,47,0.701,True
+1000,5,2,52,62,0.526,False
+1500,2,8,86,28,0.827,False
+1500,3,3,76,38,0.768,False
+1500,5,1,70,44,0.707,False
